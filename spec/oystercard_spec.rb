@@ -32,7 +32,7 @@ end
 
 
 describe Oystercard do
-  it 'not in a journey' do
+  it 'is not in a journey' do
     expect(subject).not_to be_in_journey
   end
 
