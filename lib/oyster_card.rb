@@ -13,7 +13,7 @@ class OysterCard
   end
 
   def top_up(amount)
-    fail(BalanceError, "Exceeds #{BALANCE_LIMIT}") if over_limit?(amount) 
+    fail(BalanceError, "Exceeds #{BALANCE_LIMIT}") if over_limit?(amount)
     @balance += amount
   end
 

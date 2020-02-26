@@ -1,6 +1,9 @@
 require 'oystercard'
 
 describe Oystercard do
+  # let(:station){double :station}
+
+
   it 'has a balance of zero' do
     expect(subject.balance).to eq(0)
   end
