@@ -1,6 +1,6 @@
 class Oystercard
 
-  attr_accessor :balance, :entry_station, :exit_station
+  attr_accessor :balance, :entry_station, :exit_station, :travel_history, :journey
 
   MAXIMUM_BALANCE = 90
   MINIMUM_CHARGE = 1
@@ -31,19 +31,21 @@ class Oystercard
     !!entry_station
   end
 
-  def touch_in(station)
+  def touch_in(entry_station)
     fail "Insufficient balance to touch in" if balance < MINIMUM_CHARGE
-    @entry_station = station
-    @travel_history << exit_station
+    @entry_station = entry_station
+    # @journey << entry_station
     # @in_use = true
   end
 
-  def touch_out(station)
+  def touch_out(exit_station)
     deduct(MINIMUM_CHARGE)
     # @in_use = false
-    @entry_station = nil
-    @exit_station = station
-    @travel_history << exit_station
+    @entry_station = entry_station
+    @exit_station = exit_station
+    # @journey << exit_station
+    # @travel_history << @journey
+    @travel_history.push( {entry_station: entry_station, exit_station: exit_station})
   end
 
 end
