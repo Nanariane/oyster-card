@@ -46,6 +46,7 @@ class Oystercard
     # @journey << exit_station
     # @travel_history << @journey
     @travel_history.push( {entry_station: entry_station, exit_station: exit_station})
+    @entry_station = nil
   end
 
 end
