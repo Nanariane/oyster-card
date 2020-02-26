@@ -1,8 +1,7 @@
 require 'oystercard'
 
 describe Oystercard do
-  # let(:station){double :station}
-
+  let(:station){double :station}
 
   it 'has a balance of zero' do
     expect(subject.balance).to eq(0)
@@ -60,5 +59,9 @@ describe Oystercard do
     expect{subject.touch_out}. to change{subject.balance}.by(-Oystercard::MINIMUM_CHARGE)
   end
 
+  it 'knows which station touched in at' do
+    subject.touch_in(station)
+    expect(subject.entry_station).to eq station 
+  end
 
   end
