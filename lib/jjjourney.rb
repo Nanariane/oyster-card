@@ -11,5 +11,15 @@ class Journey
     @complete
   end
 
+  def fare
+    PENALTY_FARE
+  end
+
+  def finish(station=nil)
+    @exit_station = station
+    @complete = true
+    self
+  end
+
 
 end
