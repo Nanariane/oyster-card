@@ -1,6 +1,6 @@
 class Oystercard
 
-  attr_accessor :balance, :entry_station, :exit_station, :travel_history, :journey
+  attr_accessor :balance, :entry_station, :exit_station,  :travel_history, :journey
 
   MAXIMUM_BALANCE = 90
   MINIMUM_CHARGE = 1
@@ -46,12 +46,11 @@ class Oystercard
     # @journey << exit_station
     # @travel_history << @journey
     @travel_history.push( {entry_station: entry_station, exit_station: exit_station})
-    @entry_station = nil
   end
 
-end
+  end
 
-private
-def deduct(amount)
+  private
+  def deduct(amount)
   @balance -= amount
-end
+  end
